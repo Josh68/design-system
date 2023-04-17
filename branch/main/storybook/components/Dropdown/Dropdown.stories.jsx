@@ -7,20 +7,39 @@ export default {
   argTypes: {
     children: { control: false },
     options: { control: false },
+    requirementLabel: { control: 'text' },
   },
 };
 
-const dropdownOptions = [
-  { label: '- Select an option -', value: '' },
-  { label: 'Option 1', value: '1' },
-  { label: 'Option 2', value: '2' },
-  { label: 'Option 3', value: '3' },
-  { label: 'Option 4', value: '4' },
-  { label: 'Option 5', value: '5' },
-  { label: 'Option 6', value: '6' },
-  { label: 'Option 7', value: '7' },
-  { label: 'Option 8', value: '8' },
-];
+const dropdownOptions = ["Confederated Tribes and Bands of the Yakama Nation",
+"Confederated Tribes of the Chehalis Reservation",
+"Confederated Tribes of the Colville Reservation",
+"Cowlitz Indian Tribe",
+"Hoh Indian Tribe (formerly the Hoh Indian Tribe of the Hoh Indian Reservation)",
+"Jamestown S'Klallam Tribe",
+"Kalispel Indian Community of the Kalispel Reservation",
+"Lower Elwha Tribal Community (formerly the Lower Elwha Tribal Community of the Lower Elwha Reservation)",
+"Lummi Tribe of the Lummi Reservation",
+"Makah Indian Tribe of the Makah Indian Reservation",
+"Muckleshoot Indian Tribe (formerly the Muckleshoot Indian Tribe of the Muckleshoot Reservation)",
+"Nisqually Indian Tribe (formerly the Nisqually Indian Tribe of the Nisqually Reservation)",
+"Nooksack Indian Tribe",
+"Port Gamble S'Klallam Tribe (formerly the Port Gamble Band of S'Klallam Indians)",
+"Puyallup Tribe of the Puyallup Reservation",
+"Quileute Tribe of the Quileute Reservation",
+"Quinault Indian Nation (formerly the Quinault Tribe of the Quinault Reservation)",
+"Samish Indian Nation (formerly the Samish Indian Tribe)",
+"Sauk-Suiattle Indian Tribe",
+"Shoalwater Bay Indian Tribe of the Shoalwater Bay Indian Reservation (previously listed as Shoalwater Bay Tribe of the Shoalwater BayIndian Reservation, Washington)",
+"Skokomish Indian Tribe (formerly the Skokomish Indian Tribe of the Skokomish Reservation)",
+"Snoqualmie Indian Tribe (previously listed as Snoqualmie Tribe, Washington)",
+"Spokane Tribe of the Spokane Reservation",
+"Squaxin Island Tribe of the Squaxin Island Reservation",
+"Stillaguamish Tribe of Indians of Washington (previously listed as Stillaguamish Tribe of Washington)",
+"Suquamish Indian Tribe of the Port Madison Reservation",
+"Swinomish Indian Tribal Community (previously listed as Swinomish Indians of the Swinomish Reservation of Washington)",
+"Tulalip Tribes of Washington",
+"Upper Skagit Indian Tribe"].map(tribeName => ({ label: tribeName, value: tribeName }));
 
 const optGroupData = (
   <>
