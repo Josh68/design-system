@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page should render interactive el if not current 1`] = `null`;
+
+exports[`Page should render static el if current 1`] = `
+<div>
+  <span
+    aria-current="page"
+    class="ds-c-button ds-c-button--ghost ds-c-pagination__current-page"
+  >
+    1
+  </span>
+</div>
+`;
