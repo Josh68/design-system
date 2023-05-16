@@ -7,6 +7,7 @@ const storySkipList = [
   'components-idle-timeout--default',
   'components-skip-nav--default-skip-nav',
   'components-skip-nav--skip-nav-example',
+  'components-tabs--default-tabs',
   'foundations-layout-grid--equal-widths',
   'foundations-layout-grid--column-spanning',
   'foundations-layout-grid--fit-to-content',
