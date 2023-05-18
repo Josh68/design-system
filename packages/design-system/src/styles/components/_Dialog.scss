@@ -2,7 +2,10 @@
 
 // Start polyfill styles
 dialog {
-  background-color: var(--dialog__background-color);
+  background: var(--color-white);
+  border: solid;
+  color: var(--color-black);
+  display: block;
   height: -moz-fit-content;
   height: -webkit-fit-content;
   height: fit-content;
@@ -11,6 +14,9 @@ dialog {
   padding: 1em;
   position: absolute;
   right: 0;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
 }
 
 dialog:not([open]) {
@@ -18,14 +24,20 @@ dialog:not([open]) {
 }
 
 dialog + .backdrop {
-  background: var(--dialog-overlay__background-color);
-  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+  bottom: 0;
+  left: 0;
   position: fixed;
+  right: 0;
+  top: 0;
 }
 
 ._dialog_overlay {
-  inset: 0;
+  bottom: 0;
+  left: 0;
   position: fixed;
+  right: 0;
+  top: 0;
 }
 
 dialog.fixed {
@@ -40,12 +52,11 @@ dialog.fixed {
   border: none;
   box-shadow: var(--shadow-base);
   box-sizing: border-box;
-  color: inherit; // Needed to override user-agent styles `canvasText`
   display: inline-block;
   margin-top: $spacer-6;
   max-width: var(--measure-base);
   padding: var(--dialog__padding);
-  text-align: start;
+  text-align: left;
   width: 95%; // provide space for the background layer to peek through
 
   @media (-ms-high-contrast: active), (forced-colors: active) {
@@ -80,19 +91,21 @@ dialog.fixed {
   align-items: flex-start;
   display: flex;
   // Provide some spacing when the header only includes the close button
-  padding-block-end: $spacer-1;
+  padding-bottom: $spacer-1;
 }
 
 .ds-c-dialog__body {
   overflow-wrap: break-word;
+  // IE fallback
+  word-wrap: break-word;
 }
 
 .ds-c-dialog__actions {
-  margin-block-start: $spacer-3;
+  margin-top: $spacer-3;
 }
 
 .ds-c-dialog__close {
-  margin-inline-start: auto;
+  margin-left: auto;
   padding: 0 $spacer-1 0 $spacer-half;
 
   .ds-c-icon {
@@ -112,6 +125,8 @@ dialog.fixed {
 }
 
 .ds--dialog-open {
-  inset: var(--body_top--dialog-open, 0) 0 auto 0;
+  left: 0;
   position: fixed;
+  right: 0;
+  top: var(--body_top--dialog-open, 0);
 }
