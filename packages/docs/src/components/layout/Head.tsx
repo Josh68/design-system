@@ -1,6 +1,7 @@
 import React from 'react';
 import useTheme from '../../helpers/useTheme';
 import { MdxQuery } from '../../helpers/graphQLTypes';
+import { withPrefix } from 'gatsby';
 
 export const Head = ({ data }: MdxQuery) => {
   const baseTitle = 'CMS Design System';

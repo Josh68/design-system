@@ -90,15 +90,15 @@ const config: GatsbyConfig = {
         },
         query: `
           {
-            allMdx (
-              filter: {fileAbsolutePath: {glob: "**/content/**/*"}}
-            ) {
+            allMdx {
               edges {
                 node {
                   id
-                  slug
                   frontmatter {
                     title
+                  }
+                  fields {
+                    slug
                   }
                   rawBody
                 }
@@ -112,7 +112,7 @@ const config: GatsbyConfig = {
         normalizer: ({ data }) =>
           data.allMdx.edges.map((n) => ({
             id: n.node.id,
-            path: n.node.slug,
+            path: n.node.fields.slug,
             title: n.node.frontmatter.title,
             body: n.node.rawBody.replace(/(<([^>]+)>)/gi, '').replace(/\\n/gi, ''),
           })),

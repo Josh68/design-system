@@ -37,7 +37,9 @@ export interface MdxQuery {
     mdx: {
       id: string;
       body: string;
-      slug?: string;
+      fields: {
+        slug: string;
+      };
       frontmatter: FrontmatterInterface;
       tableOfContents?: {
         items: TableOfContentsItem[];
@@ -68,11 +70,13 @@ export interface BlogQuery {
       edges: {
         node: {
           body: string;
-          slug?: string;
           frontmatter: {
             title: string;
             date: string;
             intro: string;
+          };
+          fields: {
+            slug: string;
           };
         };
       }[];

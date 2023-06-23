@@ -9,13 +9,12 @@ import ContentRenderer from '../components/content/ContentRenderer';
 export { Head } from '../components/layout/Head';
 
 const ContactPage = ({ data, location }: MdxQuery) => {
-  const { slug } = data.mdx;
   const theme = useTheme();
   return (
     <Layout
       frontmatter={data.mdx.frontmatter}
       location={location}
-      slug={slug}
+      slug={data.mdx.fields.slug}
       theme={theme}
       tableOfContentsData={data.mdx.tableOfContents?.items}
     >
@@ -28,11 +27,13 @@ export const query = graphql`
     mdx(frontmatter: { title: { eq: "Contact us" } }) {
       id
       body
-      slug
       tableOfContents(maxDepth: 3)
       frontmatter {
         title
         intro
+      }
+      fields {
+        slug
       }
     }
   }

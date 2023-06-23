@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -19,6 +20,18 @@ exports.onCreateDevServer = ({ app }) => {
   app.use(express.static('static'));
 };
 
+// Added to fill in the `slug` field we came to rely heavily on
+// See https://paulie.dev/posts/2022/09/mdx-2-breaking-changes-and-gatsby-plugin-mdx-v4-slug/
+exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
+  if (node.internal.type === 'Mdx') {
+    createNodeField({
+      node,
+      name: 'slug',
+      value: createFilePath({ node, getNode }),
+    });
+  }
+};
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   const infoPageTemplate = path.resolve(`src/components/page-templates/InfoPage.tsx`);
@@ -27,14 +40,16 @@ exports.createPages = ({ graphql, actions }) => {
   // get all pages
   return graphql(`
     query loadPagesQuery {
-      allMdx(filter: { fileAbsolutePath: { glob: "**/content/**" } }) {
+      allMdx {
         edges {
           node {
             id
-            slug
             body
             frontmatter {
               title
+            }
+            fields {
+              slug
             }
           }
         }
@@ -49,8 +64,8 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.allMdx.edges.forEach((edge) => {
       createPage({
         // Path for this page -- the slug with positioning markers removed
-        path: edge.node.slug.replace(/\d+_/g, '') + '/',
-        component: edge.node.slug.startsWith('blog') ? blogPageTemplate : infoPageTemplate,
+        path: edge.node.fields.slug.replace(/\d+_/g, '') + '/',
+        component: edge.node.fields.slug.startsWith('blog') ? blogPageTemplate : infoPageTemplate,
         // props passed to template
         context: {
           id: edge.node.id,

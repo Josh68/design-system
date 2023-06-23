@@ -10,14 +10,12 @@ export { Head } from '../components/layout/Head';
 
 // Main landing page for site
 const IndexPage = ({ data, location }: MdxQuery) => {
-  const { slug } = data.mdx;
   const theme = useTheme();
-
   return (
     <Layout
       frontmatter={data.mdx.frontmatter}
       location={location}
-      slug={slug}
+      slug={data.mdx.fields.slug}
       theme={theme}
       tableOfContentsData={data.mdx.tableOfContents?.items}
     >
@@ -31,10 +29,12 @@ export const query = graphql`
     mdx(frontmatter: { title: { eq: "Introduction" } }) {
       id
       body
-      slug
       tableOfContents(maxDepth: 3)
       frontmatter {
         title
+      }
+      fields {
+        slug
       }
     }
   }

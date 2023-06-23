@@ -12,14 +12,14 @@ export { Head } from '../layout/Head';
  * Template for information content pages.
  */
 const InfoPage = ({ data, location }: MdxQuery) => {
-  const { frontmatter, body, tableOfContents, slug } = data.mdx;
+  const { frontmatter, body, tableOfContents, fields } = data.mdx;
   const theme = useTheme();
 
   return (
     <Layout
       frontmatter={frontmatter}
       location={location}
-      slug={slug}
+      slug={fields.slug}
       theme={theme}
       tableOfContentsData={tableOfContents?.items}
     >
@@ -51,7 +51,9 @@ export const query = graphql`
           githubLink
         }
       }
-      slug
+      fields {
+        slug
+      }
       body
       tableOfContents(maxDepth: 3)
     }

@@ -1,7 +1,6 @@
 import React from 'react';
 import Prism from 'prismjs';
 
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
 
 import ButtonMigrationTable from './ButtonMigrationTable';
@@ -109,11 +108,7 @@ interface ContentRendererProps {
  * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/#components for details
  */
 const ContentRenderer = ({ data, theme }: ContentRendererProps) => {
-  return (
-    <MDXProvider components={customComponents(theme)}>
-      <MDXRenderer>{data}</MDXRenderer>
-    </MDXProvider>
-  );
+  return <MDXProvider components={customComponents(theme)}>{data}</MDXProvider>;
 };
 
 export default ContentRenderer;

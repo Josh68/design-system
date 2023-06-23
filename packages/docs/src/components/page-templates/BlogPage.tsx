@@ -15,7 +15,7 @@ export { Head } from '../layout/Head';
  * Template for information content pages.
  */
 const BlogPage = ({ data, location }: MdxQuery) => {
-  const { frontmatter, body, tableOfContents, slug } = data.mdx;
+  const { frontmatter, body, tableOfContents, fields } = data.mdx;
   const theme = useTheme();
   const backLink = (
     <Link to="/blog/">
@@ -28,7 +28,7 @@ const BlogPage = ({ data, location }: MdxQuery) => {
     <Layout
       frontmatter={frontmatter}
       location={location}
-      slug={slug}
+      slug={fields.slug}
       theme={theme}
       tableOfContentsData={tableOfContents?.items}
       pageHeader={
@@ -58,7 +58,9 @@ export const query = graphql`
         title
         date
       }
-      slug
+      fields {
+        slug
+      }
       body
       tableOfContents(maxDepth: 3)
     }

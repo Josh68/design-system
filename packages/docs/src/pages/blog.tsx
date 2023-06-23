@@ -30,11 +30,11 @@ const BlogIndexPage = ({ data, location }: BlogQuery) => {
               'ds-u-measure--wide',
               index < nodes.length - 1 && 'ds-u-border-bottom--1'
             )}
-            key={node.slug}
+            key={node.fields.slug}
           >
             <header>
               <h2 className="ds-text-heading--2xl ds-u-margin-bottom--0">
-                <Link to={`/${node.slug}`}>{node.frontmatter.title}</Link>
+                <Link to={`/${node.fields.slug}`}>{node.frontmatter.title}</Link>
               </h2>
               <PublishDate date={node.frontmatter.date} />
             </header>
@@ -49,17 +49,19 @@ const BlogIndexPage = ({ data, location }: BlogQuery) => {
 export const query = graphql`
   query BlogIndexPageQuery {
     allMdx(
-      filter: { fileAbsolutePath: { glob: "**/content/blog/*" } }
+      filter: { fields: { slug: { glob: "/blog/*" } } }
       sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {
-          slug
           body
           frontmatter {
             title
             date
             intro
+          }
+          fields {
+            slug
           }
         }
       }

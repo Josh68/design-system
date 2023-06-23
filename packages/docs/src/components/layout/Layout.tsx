@@ -11,7 +11,6 @@ import {
   FrontmatterInterface,
   TableOfContentsItem,
 } from '../../helpers/graphQLTypes';
-import { withPrefix } from 'gatsby';
 
 import '../../styles/index.scss';
 
