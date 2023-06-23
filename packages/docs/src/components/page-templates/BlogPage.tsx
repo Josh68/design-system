@@ -9,6 +9,8 @@ import { graphql, Link } from 'gatsby';
 import BackIcon from '../icons/BackIcon';
 import PageFeedback from '../content/PageFeedback';
 
+export { Head } from '../layout/Head';
+
 /**
  * Template for information content pages.
  */

@@ -5,7 +5,6 @@ import PageHeader from './PageHeader';
 import TableOfContents from './TableOfContents';
 import TableOfContentsMobile from './TableOfContentsMobile';
 import HeaderFullWidth from './HeaderFullWidth';
-import { Helmet } from 'react-helmet';
 import { SkipNav, UsaBanner } from '@cmsgov/design-system';
 import {
   LocationInterface,
@@ -56,8 +55,6 @@ const Layout = ({
   theme,
   tableOfContentsData,
 }: LayoutProps) => {
-  const env = 'prod';
-
   const tabTitle = frontmatter?.title
     ? `${frontmatter.title} - CMS Design System`
     : 'CMS Design System';
@@ -66,21 +63,6 @@ const Layout = ({
 
   return (
     <div className="ds-base" data-theme={theme} id={pageId}>
-      <Helmet
-        title={tabTitle}
-        htmlAttributes={{
-          lang: 'en',
-        }}
-      >
-        <script>{`window.tealiumEnvironment = "${env}";`}</script>
-        <script src="//tags.tiqcdn.com/utag/cmsgov/cms-design/prod/utag.sync.js"></script>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          title="docThemeCss"
-          href={withPrefix(`themes/${theme}-theme.css`)}
-        />
-      </Helmet>
       <SkipNav href="#main" />
 
       <UsaBanner className="ds-u-display--none ds-u-md-display--block" />

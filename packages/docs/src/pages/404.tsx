@@ -6,6 +6,8 @@ import { MdxQuery } from '../helpers/graphQLTypes';
 import useTheme from '../helpers/useTheme';
 import ContentRenderer from '../components/content/ContentRenderer';
 
+export { Head } from '../components/layout/Head';
+
 const NotFoundPage = ({ data, location }: MdxQuery) => {
   const theme = useTheme();
   return (

@@ -7,6 +7,8 @@ import { MdxQuery, SearchDataStore, SearchQuery } from '../helpers/graphQLTypes'
 import Layout from '../components/layout/Layout';
 import useTheme from '../helpers/useTheme';
 
+export { Head } from '../components/layout/Head';
+
 const SearchPage = ({ location }: MdxQuery) => {
   const [query, setQuery] = useState('');
   const theme = useTheme();

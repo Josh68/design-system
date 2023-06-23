@@ -6,6 +6,8 @@ import { graphql, Link } from 'gatsby';
 import PublishDate from '../components/content/PublishDate';
 import classNames from 'classnames';
 
+export { Head } from '../components/layout/Head';
+
 const BlogIndexPage = ({ data, location }: BlogQuery) => {
   const theme = useTheme();
   const nodes = data.allMdx.edges.map((edge) => edge.node);

@@ -6,6 +6,8 @@ import { MdxQuery } from '../helpers/graphQLTypes';
 import useTheme from '../helpers/useTheme';
 import ContentRenderer from '../components/content/ContentRenderer';
 
+export { Head } from '../components/layout/Head';
+
 // Main landing page for site
 const IndexPage = ({ data, location }: MdxQuery) => {
   const { slug } = data.mdx;

@@ -6,6 +6,8 @@ import useTheme from '../../helpers/useTheme';
 import { MdxQuery } from '../../helpers/graphQLTypes';
 import { graphql } from 'gatsby';
 
+export { Head } from '../layout/Head';
+
 /**
  * Template for information content pages.
  */
