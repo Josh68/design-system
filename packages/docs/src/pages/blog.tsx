@@ -50,7 +50,7 @@ export const query = graphql`
   query BlogIndexPageQuery {
     allMdx(
       filter: { fileAbsolutePath: { glob: "**/content/blog/*" } }
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {
