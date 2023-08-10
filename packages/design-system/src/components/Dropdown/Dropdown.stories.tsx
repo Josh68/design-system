@@ -110,6 +110,31 @@ export const OptionGroups: Story = {
   },
 };
 
+export const OptionGroupsDefault: Story = {
+  args: {
+    options: [
+      {
+        label: 'Common income types',
+        options: [
+          { value: 'a-1', label: '-- Chooose an income type --', style: 'display: none' },
+          { value: 'a-2', label: 'Job (like salary, wages, commissions, or tips)' },
+          { value: 'a-3', label: 'Option A-3' },
+        ],
+      },
+      {
+        label: 'Group B',
+        options: [
+          { value: 'b-1', label: 'Option B-1' },
+          { value: 'b-2', label: 'Option B-2' },
+          { value: 'b-3', label: 'Option B-3' },
+        ],
+      },
+    ],
+    label: 'Option groups example',
+    name: 'optgroups_dropdown_field',
+  },
+};
+
 export const HtmlOptionGroups: Story = {
   args: {
     options: undefined,
