@@ -46,7 +46,9 @@ export const NativeDialog = ({
     const dialogNode = dialogRef.current;
     showModal ? dialogNode.showModal() : dialogNode.show();
     return () => {
+      console.log('unmount: dialog close before');
       dialogNode.close();
+      console.log('unmount: dialog close after');
     };
   }, [showModal]);
 

@@ -86,7 +86,7 @@ const drawerContent3 = {
 
 const SingleDrawerWithToggle = (...args) => {
   const { heading, children } = args[0];
-  const { toggleClick, closeClick, isOpen } = useDrawerManager();
+  const { toggleRef, toggleClick, closeClick, isOpen } = useDrawerManager();
 
   return (
     <>
@@ -105,6 +105,7 @@ const SingleDrawerWithToggle = (...args) => {
         className="ds-c-drawer__toggle ds-u-margin-bottom--2"
         variation="ghost"
         onClick={toggleClick}
+        inputRef={toggleRef}
       >
         {heading}
       </Button>
@@ -116,6 +117,13 @@ export const DrawerManagerDefault: Story = {
   render: function Component() {
     return (
       <DrawerManager>
+        <div className="ds-u-margin-bottom--2 ds-u-measure--narrow">
+          <p className="ds-u-margin-bottom--1 ds-u-margin-top--0">
+            Focus should always return to a drawerʼs toggle button after it closes. The following
+            button should never receive focus after a drawer closes:
+          </p>
+          <Button>Decoy button</Button>
+        </div>
         <SingleDrawerWithToggle {...drawerContent1} />
         <SingleDrawerWithToggle {...drawerContent2} />
         <SingleDrawerWithToggle {...drawerContent3} />

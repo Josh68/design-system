@@ -11,14 +11,25 @@ export const DrawerManager = (props: any) => {
 };
 
 export const useDrawerManager = () => {
+  const toggleRef = useRef<any>();
   const { currentID, setCurrentID } = useContext(DrawerContext);
   const id = useRef(uniqueId('drawerManagerID')).current;
 
   const isOpen = currentID === id;
-  const toggleClick = () => setCurrentID(isOpen ? null : id);
-  const closeClick = () => setCurrentID(null);
+  const toggleClick = () => {
+    setCurrentID(isOpen ? null : id);
+    if (isOpen) {
+      toggleRef.current?.focus();
+    }
+  };
+  const closeClick = () => {
+    setCurrentID(null);
+    console.log('toggle focus before');
+    toggleRef.current?.focus();
+    console.log('toggle focus after');
+  };
 
-  return { toggleClick, closeClick, isOpen };
+  return { toggleRef, toggleClick, closeClick, isOpen };
 };
 
 export default DrawerManager;
