@@ -24,9 +24,7 @@ export const useDrawerManager = () => {
   };
   const closeClick = () => {
     setCurrentID(null);
-    console.log('toggle focus before');
     toggleRef.current?.focus();
-    console.log('toggle focus after');
   };
 
   return { toggleRef, toggleClick, closeClick, isOpen };
