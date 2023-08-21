@@ -191,11 +191,11 @@ export const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
     menuId,
     items,
     itemToString,
-    getA11yStatusMessage: getA11yStatusMessage ?? highlightStatusMessageFn,
-    ...(getA11ySelectionMessage ? { getA11ySelectionMessage } : {}),
+    // getA11yStatusMessage: getA11yStatusMessage ?? highlightStatusMessageFn,
+    // ...(getA11ySelectionMessage ? { getA11ySelectionMessage } : {}),
     onSelectedItemChange:
       onChange &&
-      ((changes: UseSelectStateChangeOptions<any>) => {
+      ((changes: any /*UseSelectStateChangeOptions<any>*/) => {
         // Try to support the old API that passed an event object
         const target = { value: changes.selectedItem.value };
         onChange({
@@ -272,6 +272,7 @@ export const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
           item,
           index,
           role: 'option',
+          // 'aria-selected': highlightedIndex === index
         })}
       >
         {isSelected && (

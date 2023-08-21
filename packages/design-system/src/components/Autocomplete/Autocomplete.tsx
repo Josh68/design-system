@@ -133,17 +133,11 @@ export interface AutocompleteProps
   /**
    * Called when the user selects an item and the selected item has changed. Called with the item that was selected and the new state. [Read more on downshift docs.](https://github.com/paypal/downshift#onchange)
    */
-  onChange?: (
-    selectedItem: AutocompleteItem,
-    stateAndHelpers: UseComboboxStateChangeOptions<any>
-  ) => void;
+  onChange?: any;
   /**
    * Called when the child `TextField` value changes. Returns a String `inputValue`. [Read more on downshift docs.](https://github.com/downshift-js/downshift#oninputvaluechange)
    */
-  onInputValueChange?: (
-    inputValue: string,
-    stateAndHelpers: UseComboboxStateChangeOptions<any>
-  ) => void;
+  onInputValueChange?: any;
 }
 
 /**
@@ -202,13 +196,13 @@ export const Autocomplete = (props: AutocompleteProps) => {
       menuId,
       onSelectedItemChange:
         onChange &&
-        ((changes: UseComboboxStateChangeOptions<any>) => {
+        ((changes: any) => {
           // Map to old API where the first parameter is input value
           onChange(changes.selectedItem, changes);
         }),
       onInputValueChange:
         onInputValueChange &&
-        ((changes: UseComboboxStateChangeOptions<any>) => {
+        ((changes: any) => {
           // Map to old API where the first parameter is input value
           onInputValueChange(changes.inputValue, changes);
         }),
