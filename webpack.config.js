@@ -76,16 +76,64 @@ function generateWebpackConfig({ preact = false, webComponents = false }) {
   }
 
   return {
+    target: 'node',
+    experiments: {
+      outputModule: true,
+    },
     output: {
-      filename: bundleName,
+      // filename: bundleName,
       // Expose all the index file's exports as a "DesignSystem" global object
-      library: 'DesignSystem',
+      library: {
+        // name: 'DesignSystem',
+        type: 'module',
+      },
+      chunkFormat: 'module',
     },
     mode: process.env.NODE_ENV || 'production',
     devtool: 'source-map',
     plugins,
     resolve,
     externals,
+    optimization: {
+      splitChunks: {
+        chunks: 'initial',
+        minSize: 20000,
+        minRemainingSize: 0,
+        minChunks: 1,
+        maxAsyncRequests: 30,
+        maxInitialRequests: 30,
+        enforceSizeThreshold: 50000,
+        cacheGroups: {
+          defaultVendors: {
+            test: /[\\\/]node_modules[\\\/]@react-(aria|stately|types)/,
+            priority: -10,
+            reuseExistingChunk: true,
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+          },
+        },
+      },
+      // splitChunks: {
+      //   cacheGroups: {
+      //     commons: {
+      //       test: /[\\/]node_modules[\\/]/,
+      //       // cacheGroupKey here is `commons` as the key of the cacheGroup
+      //       name(module, chunks, cacheGroupKey) {
+      //         const moduleFileName = module
+      //           .identifier()
+      //           .split('/')
+      //           .reduceRight((item) => item);
+      //         const allChunksNames = chunks.map((item) => item.name).join('~');
+      //         return `${cacheGroupKey}-${allChunksNames}-${moduleFileName}`;
+      //       },
+      //       chunks: 'all',
+      //     },
+      //   },
+      // },
+    },
   };
 }
 
