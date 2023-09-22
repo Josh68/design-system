@@ -1,4 +1,4 @@
-import register from 'preact-custom-element';
+import register from './register';
 import Dropdown from '../Dropdown/Dropdown';
 
 const attributes = [

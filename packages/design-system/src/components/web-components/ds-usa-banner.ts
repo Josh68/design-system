@@ -1,4 +1,4 @@
-import register from 'preact-custom-element';
+import register from './register';
 import UsaBanner from '../UsaBanner/UsaBanner';
 
 const attributes = ['class-name', 'id'];
