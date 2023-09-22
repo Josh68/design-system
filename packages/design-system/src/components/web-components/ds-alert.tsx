@@ -1,5 +1,5 @@
 import React from 'react';
-import register from '@amindunited/preact-custom-element';
+import register from 'preact-custom-element';
 import Alert, { AlertProps } from '../Alert/Alert';
 
 const attributes = [

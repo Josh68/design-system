@@ -7,11 +7,6 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.2.0.tgz#e1a84fca468f4b337816fcb7f0964beb620ba855"
   integrity sha512-E09FiIft46CmH5Qnjb0wsW54/YQd69LsxeKUOWawmws1XWvyFGURnAChH0mlr7YPFR1ofwvUQfcL0J3lMxXqPA==
 
-"@amindunited/preact-custom-element@3.0.0-amu-alpha.1":
-  version "3.0.0-amu-alpha.1"
-  resolved "https://registry.yarnpkg.com/@amindunited/preact-custom-element/-/preact-custom-element-3.0.0-amu-alpha.1.tgz#c3f4705ae50ec560a61c57e971ae6cf8b0d507fe"
-  integrity sha512-+1yQ6Y5D/XZKtQQXNzRsjuCpG5HuY+9+T8VUvR6NF0P+WEDNSv0eQmvC2AfVnwO4moOULDaQlTdB9fyxfbc49w==
-
 "@ampproject/remapping@^2.2.0":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.1.tgz#99e8e11851128b8702cd57c33684f1d0f260b630"
@@ -18607,6 +18602,11 @@ postcss@^8, postcss@^8.2.15, postcss@^8.2.9, postcss@^8.3.11, postcss@^8.4.19, p
     nanoid "^3.3.6"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
+
+preact-custom-element@4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/preact-custom-element/-/preact-custom-element-4.2.1.tgz#a18752ef60823ea61199d9cdc1866e51139b3f46"
+  integrity sha512-/fiEEAyC+MXRlCBRmv/owoN5BLpO2nF/MF3YBHLtp4C2lNqlhV+a4he74A5DhfDoRmxDHm0sYVgQzWFEyzTDsw==
 
 preact@10.11.3:
   version "10.11.3"

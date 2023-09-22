@@ -1,4 +1,4 @@
-import register from '@amindunited/preact-custom-element';
+import register from 'preact-custom-element';
 import Badge from '../Badge/Badge';
 
 const attributes = ['class-name', 'size', 'variation'];
