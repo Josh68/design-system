@@ -8,9 +8,11 @@ import useLabelMask from '../TextField/useLabelMask';
 import useClickOutsideHandler from '../utilities/useClickOutsideHandler';
 import usePressEscapeHandler from '../utilities/usePressEscapeHandler';
 import { DATE_MASK } from '../TextField/useLabelMask';
-import { FormFieldProps, FormLabel, useFormLabel } from '../FormLabel';
+import { FormFieldProps, useFormLabel } from '../FormLabel';
+import { Label } from '../Label';
 import { TextInput } from '../TextField';
 import { t } from '../i18n';
+import useId from '../utilities/useId';
 
 export interface SingleInputDateFieldProps extends FormFieldProps {
   /**
@@ -79,6 +81,11 @@ export interface SingleInputDateFieldProps extends FormFieldProps {
   toYear?: number;
 }
 
+/**
+ * For information about how and when to use this component, refer to the
+ * [Single Input Date Field](https://design.cms.gov/components/date-field/single-input-date-field/) and
+ * [Calendar Picker](https://design.cms.gov/components/date-field/date-picker/) documentation pages.
+ */
 const SingleInputDateField = (props: SingleInputDateFieldProps) => {
   const {
     className,
@@ -96,6 +103,7 @@ const SingleInputDateField = (props: SingleInputDateFieldProps) => {
     (fromDate != null || fromMonth != null || Number.isInteger(fromYear)) &&
     (toDate != null || toMonth != null || Number.isInteger(toYear));
   const [pickerVisible, setPickerVisible] = useState(false);
+  const id = useId('date-field--', props.id);
 
   // Set up change handlers
   function handleInputChange(event) {
@@ -119,6 +127,7 @@ const SingleInputDateField = (props: SingleInputDateFieldProps) => {
     ),
     labelComponent: 'label',
     wrapperIsFieldset: false,
+    id,
   });
   const inputRef = useRef<HTMLInputElement>();
   const { labelMask, inputProps } = useLabelMask(DATE_MASK, {
@@ -147,7 +156,7 @@ const SingleInputDateField = (props: SingleInputDateFieldProps) => {
 
   return (
     <div {...wrapperProps}>
-      <FormLabel {...labelProps} />
+      <Label {...labelProps} />
       {labelMask}
       <div className="ds-c-single-input-date-field__field-wrapper">
         <TextInput {...inputProps} />
@@ -157,10 +166,14 @@ const SingleInputDateField = (props: SingleInputDateFieldProps) => {
             onClick={() => setPickerVisible(!pickerVisible)}
             type="button"
             ref={calendarButtonRef}
+            // The `?? ''` after `hintId` is only to support v8.0, which doesn't have a `hintId`.
+            // It can be removed after we're done supporting v8.0.
+            aria-describedby={`${labelProps.id} ${labelProps.hintId ?? ''}`}
           >
             <CalendarIcon
               ariaHidden={false}
               title={t(pickerVisible ? 'singleInputDateField.close' : 'singleInputDateField.open')}
+              id={`${id}__icon`}
             />
           </button>
         )}

@@ -1,11 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import { AlertCircleIcon } from '../Icons/AlertCircleIcon';
-
-/**
- * <InlineError> is an internal component used by <FormLabel>
- * <InlineError> is also exported for advanced design system use cases, where the internal component can be leveraged to build custom form components
- */
+import { t } from '../i18n';
+import useId from '../utilities/useId';
 
 interface InlineErrorProps {
   children?: React.ReactNode;
@@ -22,15 +19,20 @@ export function InlineError({
 }: InlineErrorProps): React.ReactElement {
   const classes = classNames(
     'ds-c-inline-error',
-    'ds-c-field__error-message',
-    { 'ds-c-field__error-message--inverse': inversed },
+    { 'ds-c-inline-error--inverse': inversed },
     className
   );
   const viewbox = '36 -12 186 186';
 
   return (
-    <span className={classes} id={id} aria-live="assertive" aria-atomic="true">
+    <span
+      className={classes}
+      id={useId('inline-error--', id)}
+      aria-live="assertive"
+      aria-atomic="true"
+    >
       <AlertCircleIcon viewBox={viewbox} />
+      <span className="ds-u-visibility--screen-reader">{`${t('inlineError.prefix')}: `}</span>
       {children}
     </span>
   );

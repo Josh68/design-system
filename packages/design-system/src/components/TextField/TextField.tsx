@@ -3,7 +3,9 @@ import LabelMask from './LabelMask';
 import Mask from './Mask';
 import TextInput from './TextInput';
 import classNames from 'classnames';
-import { FormFieldProps, FormLabel, useFormLabel } from '../FormLabel';
+import { FormFieldProps, useFormLabel } from '../FormLabel';
+import { Label } from '../Label';
+import useId from '../utilities/useId';
 
 export type TextFieldDefaultValue = string | number;
 export type TextFieldMask = 'currency' | 'phone' | 'ssn' | 'zip';
@@ -95,6 +97,10 @@ export interface BaseTextFieldProps extends Omit<FormFieldProps, 'id'> {
 export type TextFieldProps = BaseTextFieldProps &
   Omit<React.ComponentPropsWithRef<'input'>, keyof BaseTextFieldProps>;
 
+/**
+ * For information about how and when to use this component,
+ * [refer to its full documentation page](https://design.cms.gov/components/text-field/).
+ */
 export const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
   const { mask, labelMask, ...textFieldProps } = props;
 
@@ -110,6 +116,7 @@ export const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
     ...textFieldProps,
     labelComponent: 'label',
     wrapperIsFieldset: false,
+    id: useId('text-field--', textFieldProps.id),
   });
 
   wrapperProps.className = classNames(
@@ -127,7 +134,7 @@ export const TextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
 
   return (
     <div {...wrapperProps}>
-      <FormLabel {...labelProps} />
+      <Label {...labelProps} />
       {mask && <Mask mask={mask}>{input}</Mask>}
       {labelMask && <LabelMask labelMask={labelMask}>{input}</LabelMask>}
       {!mask && !labelMask && input}

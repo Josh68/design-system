@@ -26,7 +26,7 @@ export interface FilterChipProps {
   /**
    * Function to call when filter chip is dismissed.
    */
-  onDelete: () => void;
+  onDelete: () => any;
   /**
    *  Use alternate thinner close icon in place of standard.
    */
@@ -37,6 +37,10 @@ export interface FilterChipProps {
   size?: 'big';
 }
 
+/**
+ * For information about how and when to use this component,
+ * [refer to its full documentation page](https://design.cms.gov/components/filter-chip/).
+ */
 export class FilterChip extends React.Component<FilterChipProps> {
   filterChipId: string;
 
@@ -44,7 +48,7 @@ export class FilterChip extends React.Component<FilterChipProps> {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.filterChipId = props.id || uniqueId('filter_');
+    this.filterChipId = props.id ?? uniqueId('filter-chip--');
   }
 
   handleClick(): void {
@@ -74,7 +78,7 @@ export class FilterChip extends React.Component<FilterChipProps> {
 
     return (
       <button
-        id={`${this.filterChipId}`}
+        id={this.filterChipId}
         className={buttonClassNames}
         onClick={this.handleClick}
         onKeyDown={this.handleKeyDown}

@@ -67,17 +67,19 @@ describe('Button', () => {
     expect(button.classList.contains('ds-c-button--small')).toBe(true);
   });
 
-  it('applies disabled, inverse, and variation classes together', () => {
+  it('applies disabled, inverse, alternate, and variation classes together', () => {
     renderButton({
       href: '#!',
       disabled: true,
       onDark: true,
+      isAlternate: true,
       variation: 'ghost',
     });
     const link = screen.getByRole('link');
     expect(link.hasAttribute('href')).toBe(false);
     expect(link.classList.contains('ds-c-button--ghost')).toBe(true);
     expect(link.classList.contains('ds-c-button--on-dark')).toBe(true);
+    expect(link.classList.contains('ds-c-button--alternate')).toBe(true);
     expect(link.classList.contains('ds-c-button')).toBe(true);
   });
 

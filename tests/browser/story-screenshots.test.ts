@@ -7,9 +7,11 @@ const storySkipList = [
   'components-dropdown--option-groups',
   'components-dropdown--html-option-groups',
   'components-dropdown--html-options',
-  'components-idle-timeout--default',
-  'components-skip-nav--default-skip-nav',
-  'components-skip-nav--skip-nav-example',
+  'components-dropdown--controlled', // Redundant
+  'components-idletimeout--default',
+  'components-skipnav--default-skip-nav',
+  'components-skipnav--skip-nav-example',
+  'components-tabs--controlled', // Redundant
   'foundations-layout-grid--equal-widths',
   'foundations-layout-grid--column-spanning',
   'foundations-layout-grid--fit-to-content',
@@ -17,6 +19,9 @@ const storySkipList = [
   'patterns-one-column-page-layout--one-column-page-layout',
   'healthcare-privacysettingslink--default',
   'healthcare-privacysettingslink--custom-content',
+  'web-components-alert--default',
+  'web-components-button--default',
+  'web-components-usabanner--default',
 ];
 
 const isSmokeTest = Boolean(process.env.SMOKE && JSON.parse(process.env.SMOKE));

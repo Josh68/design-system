@@ -5,6 +5,7 @@ import TableContext from './TableContext';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import uniqueId from 'lodash/uniqueId';
+import debounce from '../utilities/debounce';
 
 export type TableStackableBreakpoint = 'sm' | 'md' | 'lg';
 
@@ -25,6 +26,10 @@ export interface TableProps {
    * Applies the compact variation of the table.
    */
   compact?: boolean;
+  /**
+   * A unique ID prefix for all the table caption elements.
+   */
+  id?: string;
   /**
    * Applies a horizontal scrollbar and scrollable notice on `TableCaption` when the `Table`'s contents exceed the container width.
    */
@@ -56,17 +61,6 @@ export interface TableProps {
 
 type OmitProps = 'children' | 'className';
 
-function debounce<Params extends any[]>(fn: (...args: Params) => any, ms: number) {
-  let timer: NodeJS.Timeout;
-  return (...args: any[]) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      timer = null;
-      fn.apply(this, args);
-    }, ms);
-  };
-}
-
 /**
  * Determine if a React component is a TableCaption
  * @param {React.Node} child - a React component
@@ -79,6 +73,16 @@ function isTableCaption(child: React.ReactElement): boolean {
   return child && (child.type === TableCaption || componentName === 'TableCaption');
 }
 
+/**
+ * `Table` is a container component that contains `TableCaption`, `TableHead`
+ * and `TableBody` as children, as well as `TableRow` and `TableCell` for the
+ * table content. These components mostly follow ordinary HTML table semantics,
+ * but also include some additional responsive features including horizontal
+ * scrolling and vertically stacked rows.
+ *
+ * For information about how and when to use this component,
+ * [refer to its full documentation page](https://design.cms.gov/components/table/).
+ */
 export class Table extends React.Component<
   Omit<React.ComponentPropsWithoutRef<'table'>, OmitProps> & TableProps,
   any
@@ -97,7 +101,7 @@ export class Table extends React.Component<
     this.state = {
       scrollActive: false,
     };
-    this.captionID = uniqueId('caption-');
+    this.captionId = props.id ?? uniqueId('table-caption--');
     this.container = 0;
     this.debounceHandleResize = debounce(this.handleResize.bind(this), 500);
 
@@ -127,7 +131,7 @@ export class Table extends React.Component<
     }
   }
 
-  captionID: string;
+  captionId: string;
   container: any;
   debounceHandleResize: (...args: any[]) => any;
 
@@ -143,7 +147,7 @@ export class Table extends React.Component<
         // Extend props on TableCaption before rendering.
         if (this.props.scrollable) {
           return React.cloneElement(child, {
-            _id: this.captionID,
+            _id: this.captionId,
             _scrollActive: this.state.scrollActive,
             _scrollableNotice: this.props.scrollableNotice,
           });
@@ -165,6 +169,7 @@ export class Table extends React.Component<
       scrollableNotice,
       warningDisabled,
       children,
+      id,
       ...tableProps
     } = this.props;
 
@@ -185,7 +190,7 @@ export class Table extends React.Component<
     const attributeScrollable = scrollable && {
       className: 'ds-c-table__wrapper',
       role: 'region',
-      'aria-labelledby': this.captionID,
+      'aria-labelledby': this.captionId,
       tabIndex: this.state.scrollActive ? 0 : null,
     };
     const contextValue = { stackable: !!stackable, warningDisabled: !!warningDisabled };

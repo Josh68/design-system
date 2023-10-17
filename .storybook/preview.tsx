@@ -1,6 +1,6 @@
 import './storybookStyles.scss';
 import React from 'react';
-import { Preview } from '@storybook/react';
+import DocumentationTemplate from './docs/DocumentationTemplate.mdx';
 import {
   setAlertSendsAnalytics,
   setButtonSendsAnalytics,
@@ -9,10 +9,11 @@ import {
   setErrorPlacementDefault,
 } from '../packages/design-system/src/components/flags';
 import { setHeaderSendsAnalytics } from '../packages/ds-healthcare-gov/src/components/flags';
-import { setLanguage } from '@cmsgov/design-system/src/components/i18n';
+import { setLanguage } from '../packages/design-system/src/components/i18n';
 import { setLanguage as setLanguageFromPackage } from '@cmsgov/design-system';
 import themes from '../themes.json';
 import type { UtagContainer } from '@cmsgov/design-system';
+import type { Preview } from '@storybook/react';
 
 // Rewire analytics events to log to the console
 (window as UtagContainer).utag = { link: console.log };
@@ -56,7 +57,6 @@ const breakpointViewportSizes = {
       width: '1280px',
       height: '800px',
     },
-    type: 'desktop',
   },
 };
 
@@ -80,7 +80,7 @@ const themeSettingDecorator = (Story, context) => {
   // specific to a brand and only make sense when viewed in that brand theme
   const theme = parameters.theme ?? globals.theme;
 
-  document.documentElement.setAttribute('data-theme', theme);
+  context.canvasElement.setAttribute('data-theme', theme);
 
   const themeCss = document.querySelector('link[title=themeCss]') as HTMLLinkElement;
   themeCss.href = `${theme}-theme.css`;
@@ -170,6 +170,9 @@ const preview: Preview = {
     },
     viewport: {
       viewports: breakpointViewportSizes,
+    },
+    docs: {
+      page: DocumentationTemplate,
     },
   },
   decorators: [

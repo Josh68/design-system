@@ -7,7 +7,9 @@ import { ChangeEvent, useState } from 'react';
 import classNames from 'classnames';
 import { NUM_MONTHS, getMonthNames } from './getMonthNames';
 import { fallbackLocale, getLanguage, t } from '../i18n';
-import { FormFieldProps, FormLabel, useFormLabel } from '../FormLabel';
+import { FormFieldProps, useFormLabel } from '../FormLabel';
+import { Label } from '../Label';
+import useId from '../utilities/useId';
 
 const monthNumbers = (() => {
   const months = [];
@@ -69,7 +71,12 @@ interface MonthPickerProps extends FormFieldProps {
   clearAllText?: string;
 }
 
+/**
+ * For information about how and when to use this component,
+ * [refer to its full documentation page](https://design.cms.gov/components/month-picker/).
+ */
 export const MonthPicker = (props: MonthPickerProps) => {
+  const id = useId('month-picker--', props.id);
   const locale = fallbackLocale(getLanguage(), 'US');
   const months = getMonthNames(locale);
   const monthsLong = getMonthNames(locale, false);
@@ -123,11 +130,12 @@ export const MonthPicker = (props: MonthPickerProps) => {
     className: classNames('ds-c-month-picker', props.className),
     labelComponent: 'legend',
     wrapperIsFieldset: true,
+    id,
   });
 
   return (
     <fieldset {...wrapperProps}>
-      <FormLabel {...labelProps} />
+      <Label {...labelProps} />
       <div className="ds-c-month-picker__buttons ds-u-clearfix">
         <Button
           aria-pressed={selectAllPressed}
@@ -165,6 +173,7 @@ export const MonthPicker = (props: MonthPickerProps) => {
                 type="checkbox"
                 value={i + 1}
                 label={month}
+                id={`${id}__choice--${i + 1}`}
               />
             </li>
           ))}

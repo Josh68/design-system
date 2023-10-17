@@ -1,12 +1,15 @@
 import EvEmitter from 'ev-emitter';
-import FormLabel from '../FormLabel/FormLabel';
+import { Label } from '../Label';
 import React from 'react';
 import classNames from 'classnames';
 import uniqueId from 'lodash/uniqueId';
+import mergeIds from '../utilities/mergeIds';
+import { InlineError } from '../InlineError';
 
 export type ChoiceSize = 'small';
 export type ChoiceType = 'checkbox' | 'radio';
 export type ChoiceValue = number | string;
+
 export interface ChoiceProps {
   /**
    * Sets the input's `checked` state. Use this in combination with `onChange`
@@ -105,6 +108,16 @@ type OmitProps =
 /** Used to emit events to all Choice components */
 const dsChoiceEmitter = new EvEmitter();
 
+/**
+ * This component passes any additional props to its underlying input element
+ * as attributes. See the corresponding MDN documentation for
+ * [input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) for
+ * a list of valid attributes.
+
+ * For information about how and when to use this component, refer to the
+ * [checkbox](https://design.cms.gov/components/checkbox/) and
+ * [radio](https://design.cms.gov/components/radio/) documentation pages.
+ */
 export class Choice extends React.PureComponent<
   Omit<React.ComponentPropsWithRef<'input'>, OmitProps> & ChoiceProps,
   any
@@ -114,7 +127,9 @@ export class Choice extends React.PureComponent<
     this.input = null;
     this.handleChange = this.handleChange.bind(this);
     this.handleUncheck = this.handleUncheck.bind(this);
-    this.id = this.props.id || uniqueId(`${this.props.type}_${this.props.name}_`);
+    this.id = this.props.id ?? uniqueId('choice--');
+    this.hintId = this.props.hint || this.props.requirementLabel ? `${this.id}__hint` : undefined;
+    this.errorId = this.props.errorMessage ? `${this.id}__error` : undefined;
 
     if (typeof this.props.checked === 'undefined') {
       this.isControlled = false;
@@ -144,6 +159,8 @@ export class Choice extends React.PureComponent<
 
   input: any;
   id: string;
+  hintId?: string;
+  errorId?: string;
   isControlled: boolean;
   uncheckEventName: string;
 
@@ -209,9 +226,24 @@ export class Choice extends React.PureComponent<
       'ds-c-choice--small': size === 'small',
     });
 
+    let errorElement;
+    if (errorMessage) {
+      errorElement = (
+        <InlineError id={this.errorId} inversed={inversed} className={errorMessageClassName}>
+          {errorMessage}
+        </InlineError>
+      );
+    }
+
     // Remove props we have our own implementations for
     if (inputProps.id) delete inputProps.id;
     if (inputProps.onChange) delete inputProps.onChange;
+
+    // All the fields that have multiple inputs need to pass down the root
+    // aria-describedby attribute (where the root hint and error messages are
+    // linked) down to the individual inputs
+    inputProps['aria-describedby'] =
+      mergeIds(this.errorId, this.hintId, inputProps['aria-describedby']) || undefined;
 
     return (
       <div
@@ -234,13 +266,19 @@ export class Choice extends React.PureComponent<
             }}
             {...inputProps}
           />
-          <FormLabel
+          <Label
             className={labelClassName}
             fieldId={this.id}
-            {...{ errorMessage, errorMessageClassName, hint, inversed, requirementLabel }}
+            hintId={this.hintId}
+            {...{
+              errorMessage: errorElement,
+              hint,
+              inversed,
+              requirementLabel,
+            }}
           >
             {label}
-          </FormLabel>
+          </Label>
         </div>
         {this.checked() ? checkedChildren : uncheckedChildren}
       </div>
