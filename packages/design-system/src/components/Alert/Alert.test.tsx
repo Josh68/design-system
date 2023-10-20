@@ -42,8 +42,7 @@ describe('Alert', function () {
     const className = 'ds-u-test';
     const role = 'alert';
     renderAlert({ className, role });
-    const alert = screen.getByRole(role);
-    expect(alert.className).toContain(className);
+    expect(screen.getByRole(role).className).toContain(className);
   });
 
   it('renders HTML children', () => {

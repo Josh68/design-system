@@ -30,6 +30,7 @@
     "prettier": "yarn prettier --write 'packages/**/*.{js,jsx,tsx,scss,html,md,mdx,json}'",
     "release": "ts-node ./scripts/release.ts",
     "release:notes": "ts-node ./scripts/notes.ts",
+    "release:patch": "ts-node ./scripts/patch.ts",
     "serve:docs": "yarn --cwd ./packages/docs serve",
     "start": "yarn build:storybook:docs && yarn --cwd ./packages/docs develop",
     "storybook": "storybook dev -p 6006",
@@ -41,6 +42,7 @@
     "test:unit": "yarn jest --config=tests/unit/jest.config.js",
     "test:unit:update": "yarn test:unit --updateSnapshot",
     "test:unit:preact": "PREACT=true yarn jest --config=tests/unit/jest.config.js",
+    "test:unit:wc": "WC=true yarn jest --config=tests/unit/jest.config.js",
     "test:browser:all": "yarn test:browser && yarn test:browser:interaction",
     "test:browser": "docker run --rm --network host -v $(pwd):/work/ -w /work/ mcr.microsoft.com/playwright:v1.31.0-focal yarn playwright test --config tests/browser/playwright.config.ts",
     "test:browser:smoke": "docker run --rm --network host -v $(pwd):/work/ -w /work/ --env SMOKE=true mcr.microsoft.com/playwright:v1.31.0-focal yarn playwright test --config tests/browser/playwright.config.ts",
@@ -157,6 +159,5 @@
   "engines": {
     "node": ">=11.0.0",
     "yarn": ">=1.22.4"
-  },
-  "peerDependencies": {}
+  }
 }
