@@ -1,0 +1,10 @@
+{
+  "media": {
+    "$type": "dimension",
+    "width-xs": { "$value": "0px" },
+    "width-sm": { "$value": "544px" },
+    "width-md": { "$value": "768px" },
+    "width-lg": { "$value": "1024px" },
+    "width-xl": { "$value": "1280px" }
+  }
+}

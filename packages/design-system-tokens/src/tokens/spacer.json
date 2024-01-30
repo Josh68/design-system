@@ -1,0 +1,14 @@
+{
+  "spacer": {
+    "$type": "dimension",
+    "none": { "$value": "0px" },
+    "half": { "$value": "4px" },
+    "1": { "$value": "8px" },
+    "2": { "$value": "16px" },
+    "3": { "$value": "24px" },
+    "4": { "$value": "32px" },
+    "5": { "$value": "40px" },
+    "6": { "$value": "48px" },
+    "7": { "$value": "56px" }
+  }
+}

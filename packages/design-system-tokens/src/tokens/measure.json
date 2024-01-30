@@ -1,0 +1,8 @@
+{
+  "measure": {
+    "$type": "dimension",
+    "narrow": { "$value": "45ex" },
+    "base": { "$value": "65ex" },
+    "wide": { "$value": "80ex" }
+  }
+}
