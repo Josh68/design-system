@@ -2,14 +2,14 @@
   "font": {
     "family": {
       "$type": "fontFamily",
-      "family-open-sans": { "$value": ["Open Sans", "Inter", "Roboto", "Helvetica Neue", "Arial Nova", "Nimbus Sans", "Arial", "sans-serif"] },
-      "family-rubik": { "$value": ["Rubik", "Seravek", "Gill Sans Nova", "Ubuntu", "Calibri", "DejaVu Sans", "source-sans-pro", "sans-serif"] },
-      "family-montserrat": { "$value": ["Montserrat", "Avenir", "Corbel", "URW Gothic", "source-sans-pro", "sans-serif"] },
-      "family-bitter": { "$value": ["Bitter", "Superclarendon", "Bookman Old Style", "URW Bookman", "URW Bookman L", "Georgia Pro", "Georgia", "serif"] }
+      "open-sans": { "$value": ["Open Sans", "Inter", "Roboto", "Helvetica Neue", "Arial Nova", "Nimbus Sans", "Arial", "sans-serif"] },
+      "rubik": { "$value": ["Rubik", "Seravek", "Gill Sans Nova", "Ubuntu", "Calibri", "DejaVu Sans", "source-sans-pro", "sans-serif"] },
+      "montserrat": { "$value": ["Montserrat", "Avenir", "Corbel", "URW Gothic", "source-sans-pro", "sans-serif"] },
+      "bitter": { "$value": ["Bitter", "Superclarendon", "Bookman Old Style", "URW Bookman", "URW Bookman L", "Georgia Pro", "Georgia", "serif"] }
     },
     "size": {
       "$type": "dimension",
-      "10": { "$value": ".875rem" },
+      "10": { "$value": "0.875rem" },
       "20": { "$value": "1rem" },
       "30": { "$value": "1.125rem" },
       "40": { "$value": "1.3125rem" },
