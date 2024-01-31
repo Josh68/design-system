@@ -28,7 +28,9 @@ export type Token<T> = {
 
 export type AnimationTokens = Token<string | number>;
 export type BorderRadiusTokens = Token<BorderRadiusValue>;
-export type ColorTokens = Token<HexValue | RGBValue | RGBAValue | 'transparent' | 'inherit'>;
+export type ColorTokens = Token<
+  HexValue | RGBValue | RGBAValue | 'transparent' | 'inherit' | string
+>;
 export type FontTokens = Token<string | number>;
 export type MeasureTokens = Token<MeasureValues>;
 export type MediaWidthTokens = Token<MeasureValues>;
