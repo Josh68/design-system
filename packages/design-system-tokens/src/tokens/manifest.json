@@ -1,0 +1,10 @@
+{
+	"name": "Web",
+	"collections": {
+		"System": {
+			"modes": {
+				"Value": [ "color.json", "radius.json", "spacing.json" ]
+			}
+		}
+	}
+}

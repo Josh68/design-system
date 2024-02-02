@@ -1,22 +1,27 @@
 {
   "radius": {
-    "$type": "dimension",
     "circle": {
+      "$type": "dimension",
       "$value": "100%"
     },
     "default": {
+      "$type": "dimension",
       "$value": "3px"
     },
     "large": {
+      "$type": "dimension",
       "$value": "8px"
     },
     "medium": {
+      "$type": "dimension",
       "$value": "4px"
     },
     "pill": {
+      "$type": "dimension",
       "$value": "9999px"
     },
     "small": {
+      "$type": "dimension",
       "$value": "2px"
     }
   }

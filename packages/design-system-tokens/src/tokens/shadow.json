@@ -1,0 +1,14 @@
+{
+  "shadow": {
+    "base": {
+      "$type": "shadow",
+      "$value": {
+        "color": "{theme.color.base}",
+        "offsetX": "2px",
+        "offsetY": "2px",
+        "blur": "4px",
+        "spread": "0px"
+      }
+    }
+  }
+}
