@@ -5,6 +5,14 @@
 			"modes": {
 				"Value": [ "color.json", "radius.json", "spacing.json" ]
 			}
+		},
+		"Theme": {
+			"modes": {
+				"core": [ "core.json" ],
+				"cmsgov": [ "cmsgov.json" ],
+				"healthcare": [ "healthcare.json" ],
+				"medicare": [ "medicare.json" ]
+			}
 		}
 	}
 }

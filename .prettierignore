@@ -5,7 +5,7 @@ tmp/**
 storybook-static/**
 packages/coverage/**
 packages/design-system-tokens/src/themes/**/*.ts
-packages/design-system-tokens/src/tokens/**
+packages/design-system-tokens/src/tokens/**/*.ts
 packages/docs/.cache/**
 packages/docs/public/**
 packages/docs/static/**
