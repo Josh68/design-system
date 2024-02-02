@@ -1,15 +1,11 @@
 {
   "animation": {
-    "ease-in-out-expo": {
-      "$value": "cubic-bezier(1, 0, 0, 1)",
-      "$type": "cubicBezier"
-    },
     "speed": {
-      "$type": "duration",
-      "1": { "$value": "250ms" },
-      "2": { "$value": "300ms" },
-      "3": { "$value": "500ms" },
-      "4": { "$value": "800ms" }
+      
+      "1": { "$type": "duration","$value": "250ms" },
+      "2": { "$type": "duration","$value": "300ms" },
+      "3": { "$type": "duration","$value": "500ms" },
+      "4": { "$type": "duration","$value": "800ms" }
     }
   }
 }

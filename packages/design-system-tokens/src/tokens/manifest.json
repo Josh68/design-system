@@ -3,13 +3,13 @@
 	"collections": {
 		"System": {
 			"modes": {
-				"Value": [ "color.json", "radius.json", "spacing.json" ]
+				"Value": [ "animation.json", "color.json", "font.json", "radius.json", "spacing.json" ]
 			}
 		},
 		"Theme": {
 			"modes": {
 				"core": [ "core.json" ],
-				"cmsgov": [ "cmsgov.json" ],
+				"cmsgov": [ "cmsgov.json", "cmsgov-component.json" ],
 				"healthcare": [ "healthcare.json" ],
 				"medicare": [ "medicare.json" ]
 			}
