@@ -1,0 +1,512 @@
+{
+  "component": {
+    "accordion": {
+      "color": { "$type": "color", "$value": "{theme.color.base}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.primary.lightest}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.primary.lighter}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.gray.lightest}" },
+      "border-top-left-radius": { "$type": "dimension", "$value": "20px" },
+      "border-top-right-radius": { "$type": "dimension", "$value": "20px" },
+      "border-bottom-left-radius": { "$type": "dimension", "$value": "0px" },
+      "border-bottom-right-radius": { "$type": "dimension", "$value": "0px" },
+      "border-width": { "$type": "dimension", "$value": "1px" },
+      "button": {
+        "color": { "$type": "color", "$value": "{theme.color.base}" }
+      },
+      "content": {
+        "background-color": { "$type": "color", "$value": "{theme.color.white}" }
+      }
+    },
+    "alert": {
+      "background-color": { "$type": "color", "$value": "{theme.color.info.lightest}" },
+      "background-color--error": { "$type": "color", "$value": "{theme.color.error.lightest}" },
+      "background-color--lightweight": { "$type": "color", "$value": "{theme.color.white}" },
+      "background-color--success": { "$type": "color", "$value": "{theme.color.success.lightest}" },
+      "background-color--warn": { "$type": "color", "$value": "{theme.color.warn.lightest}" },
+      "border-left-color": { "$type": "color", "$value": "{theme.color.info}" },
+      "border-color--error": { "$type": "color", "$value": "{theme.color.error}" },
+      "border-color--success": { "$type": "color", "$value": "{theme.color.success}" },
+      "border-color--warn": { "$type": "color", "$value": "{theme.color.warn}" },
+      "font-color": { "$type": "color", "$value": "{theme.color.base}" },
+      "icon-size": { "$value": "{spacer.5}" },
+      "padding": { "$value": "{spacer.2}" },
+      "bar": {
+        "width": { "$value": "{spacer.1}" }
+      },
+      "link": {
+        "font-color": { "$type": "color", "$value": "{theme.color.primary.darker}" },
+        "font-color--hover": { "$type": "color", "$value": "{theme.color.primary.darkest}" },
+        "font-color--focus": { "$type": "color", "$value": "{theme.color.primary.darkest}" },
+        "font-color--active": { "$type": "color", "$value": "{theme.color.primary.darkest}" }
+      }
+    },
+    "autocomplete": {
+      "background-color": { "$type": "color", "$value": "{theme.color.white}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "item": {
+        "font-color": { "$type": "color", "$value": "{theme.color.primary}" },
+        "background-color--active": { "$type": "color", "$value": "{theme.color.primary}" },
+        "font-color--active": { "$type": "color", "$value": "{theme.color.white}" }
+      },
+      "item-message": {
+        "font-color": { "$type": "color", "$value": "{theme.color.primary}" }
+      }
+    },
+    "badge": {
+      "background-color": { "$type": "color", "$value": "{theme.color.gray.lightest}" },
+      "background-color--alert": { "$type": "color", "$value": "{theme.color.error}" },
+      "background-color--info": { "$type": "color", "$value": "{theme.color.primary}" },
+      "background-color--success": { "$type": "color", "$value": "{theme.color.success}" },
+      "background-color--warn": { "$type": "color", "$value": "{theme.color.warn}" },
+      "font-color": { "$type": "color", "$value": "{theme.color.base}" },
+      "font-color--alert": { "$type": "color", "$value": "{theme.color.white}" },
+      "font-color--info": { "$type": "color", "$value": "{theme.color.white}" },
+      "font-color--success": { "$type": "color", "$value": "{theme.color.white}" },
+      "font-color--warn": { "$type": "color", "$value": "{theme.color.base}" },
+      "border-radius": { "$value": "{radius.medium}" }
+    },
+    "button": {
+      "background-color--active": { "$type": "color", "$value": "{theme.color.primary.lightest}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.gray.lightest}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.accent.primary}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--active": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-color--disabled": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "border-color--hover": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-radius": { "$value": "{radius.pill}" },
+      "border-width": { "$type": "dimension", "$value": "2px" },
+      "color--active": { "$type": "color", "$value": "{theme.color.primary.darkest}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.gray.dark}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.primary.darker}" },
+      "color": { "$type": "color", "$value": "{theme.color.primary}" },
+      "icon": {
+        "fill": { "$type": "color", "$value": "currentColor" }
+      }
+    },
+    "button-alt": {
+      "background-color--active": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.accent.primary}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--active": { "$type": "color", "$value": "currentColor" },
+      "border-color--disabled": { "$type": "color", "$value": "currentColor" },
+      "border-color--hover": { "$type": "color", "$value": "currentColor" },
+      "border-color": { "$type": "color", "$value": "currentColor" },
+      "color--active": { "$type": "color", "$value": "{theme.color.primary.darkest}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.primary.darker}" },
+      "color": { "$type": "color", "$value": "{theme.color.primary}" }
+    },
+    "button-dark": {
+      "background-color--active": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--active": { "$type": "color", "$value": "currentColor" },
+      "border-color--disabled": { "$type": "color", "$value": "currentColor" },
+      "border-color--hover": { "$type": "color", "$value": "currentColor" },
+      "border-color": { "$type": "color", "$value": "currentColor" },
+      "color--active": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.gray.dark}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.gray.lightest}" },
+      "color": { "$type": "color", "$value": "{theme.color.white}" }
+    },
+    "button-dark-alt": {
+      "background-color--active": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--active": { "$type": "color", "$value": "currentColor" },
+      "border-color--disabled": { "$type": "color", "$value": "currentColor" },
+      "border-color--hover": { "$type": "color", "$value": "currentColor" },
+      "border-color": { "$type": "color", "$value": "currentColor" },
+      "color--active": { "$type": "color", "$value": "{theme.color.secondary.light}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.gray.dark}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.secondary.lighter}" },
+      "color": { "$type": "color", "$value": "{theme.color.secondary.lightest}" }
+    },
+    "button-solid": {
+      "background-color--active": { "$type": "color", "$value": "{theme.color.primary.lightest}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.gray.lightest}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.accent.primary}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-color--active": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-color--disabled": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "border-color--hover": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color--active": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.gray.dark}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color": { "$type": "color", "$value": "{theme.color.white}" }
+    },
+    "button-solid-alt": {
+      "background-color--active": { "$type": "color", "$value": "{theme.color.primary.lightest}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.gray.lightest}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.accent.primary}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-color--active": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-color--disabled": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "border-color--hover": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color--active": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.gray.dark}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color": { "$type": "color", "$value": "{theme.color.white}" }
+    },
+    "button-solid-dark": {
+      "background-color--active": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.gray.darker}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.gray.lightest}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.white}" },
+      "border-color--active": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "border-color--disabled": { "$type": "color", "$value": "{theme.color.gray.darker}" },
+      "border-color--hover": { "$type": "color", "$value": "{theme.color.gray.lightest}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.white}" },
+      "color--active": { "$type": "color", "$value": "{theme.color.base}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.base}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.base}" },
+      "color": { "$type": "color", "$value": "{theme.color.base}" }
+    },
+    "button-solid-dark-alt": {
+      "background-color--active": { "$type": "color", "$value": "{theme.color.secondary}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.gray.darker}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.secondary.light}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.secondary.lighter}" },
+      "border-color--active": { "$type": "color", "$value": "{theme.color.secondary}" },
+      "border-color--disabled": { "$type": "color", "$value": "{theme.color.gray.darker}" },
+      "border-color--hover": { "$type": "color", "$value": "{theme.color.secondary.light}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.secondary.lighter}" },
+      "color--active": { "$type": "color", "$value": "{theme.color.base}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.base}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.base}" },
+      "color": { "$type": "color", "$value": "{theme.color.base}" }
+    },
+    "button-ghost": {
+      "background-color--active": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.accent.primary}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--active": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--disabled": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--hover": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "color--active": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.gray.dark}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color": { "$type": "color", "$value": "{theme.color.primary}" }
+    },
+    "button-ghost-alt": {
+      "background-color--active": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.accent.primary}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--active": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--disabled": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--hover": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "color--active": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.gray.dark}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color": { "$type": "color", "$value": "{theme.color.primary}" }
+    },
+    "button-ghost-dark": {
+      "background-color--active": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--active": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--disabled": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--hover": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "color--active": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.gray.dark}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.gray.lightest}" },
+      "color": { "$type": "color", "$value": "{theme.color.white}" }
+    },
+    "button-ghost-dark-alt": {
+      "background-color--active": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--active": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--disabled": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color--hover": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.transparent}" },
+      "color--active": { "$type": "color", "$value": "{theme.color.secondary}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.gray.dark}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.secondary.light}" },
+      "color": { "$type": "color", "$value": "{theme.color.secondary.lighter}" }
+    },
+    "choice": {
+      "background-color": { "$type": "color", "$value": "{theme.color.background}" },
+      "background-color--checked": { "$type": "color", "$value": "{theme.color.primary}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "background-color--inverse": { "$type": "color", "$value": "{theme.color.{theme.color.transparent}}" },
+      "background-color--disabled--inverse": {
+        "$value": "{hexOpacity(theme.color.muted.inverse, 0.15)}"
+      },
+      "border-color": { "$type": "color", "$value": "{theme.color.base}" },
+      "border-color--checked": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-color--disabled": { "$type": "color", "$value": "{theme.color.gray.light}" },
+      "border-color--error": { "$type": "color", "$value": "{theme.color.base}" },
+      "border-color--error--inverse": { "$type": "color", "$value": "{theme.color.white}" },
+      "border-color--inverse": { "$type": "color", "$value": "{theme.color.white}" },
+      "border-color--left": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-color--focus": { "$type": "color", "$value": "{theme.color.primary.darker}" },
+      "border-color--disabled--inverse": { "$type": "color", "$value": "{theme.color.gray.light}" },
+      "border-radius": { "$type": "dimension", "$value": "0px" },
+      "border-width": { "$type": "dimension", "$value": "2px" },
+      "color--unchecked": { "$type": "color", "$value": "{theme.color.white}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.muted}" },
+      "size": { "$value": "{spacer.4}" },
+      "size--small": { "$type": "dimension", "$value": "20px" },
+      "size-radio": { "$type": "dimension", "$value": "22px" },
+      "size-radio--small": { "$type": "dimension", "$value": "12px" },
+      "label": {
+        "color--disabled": { "$type": "color", "$value": "{theme.color.muted}" },
+        "color--disabled--inverse": {
+          "$type": "color",
+          "$value": "{theme.color.muted.inverse}"
+        }
+      }
+    },
+    "day-picker": {
+      "button": {
+        "background-color--hover": {
+          "$type": "color",
+          "$value": "{theme.color.primary.lightest}"
+        }
+      }
+    },
+    "dialog": {
+      "background-color": { "$type": "color", "$value": "{theme.color.white}" },
+      "padding": { "$value": "{spacer.4}" },
+      "overlay": {
+        "background-color": {
+          "$type": "color",
+          "$value": "{theme.color.background-dialog-mask}"
+        }
+      }
+    },
+    "drawer": {
+      "animation-timing": { "$value": "{animation.speed.2}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.background}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.border}" },
+      "close": {
+        "color": { "$type": "color", "$value": "{theme.color.black}" }
+      },
+      "header": {
+        "background-color": { "$type": "color", "$value": "{theme.color.gray.lightest}" }
+      },
+      "footer": {
+        "background-color": { "$type": "color", "$value": "{theme.color.info.lightest}" }
+      },
+      "toggle": {
+        "background-color--hover": { "$type": "color", "$value": "{theme.color.info}" },
+        "color--hover": { "$type": "color", "$value": "{theme.color.white}" },
+        "background-color--hover--inverse": {
+          "$type": "color",
+          "$value": "{theme.color.white}"
+        },
+        "color--hover--inverse": { "$type": "color", "$value": "{theme.color.gray.darker}" }
+      }
+    },
+    "dropdown": {
+      "background-color": { "$type": "color", "$value": "{theme.color.white}" },
+      "option-group": {
+        "padding": { "$value": "{spacer.3}" }
+      }
+    },
+    "filter-chip": {
+      "border-radius": { "$value": "{radius.pill}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.primary.lightest}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color": { "$type": "color", "$value": "{theme.color.base}" },
+      "background-color--active": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-color--active": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color--active": { "$type": "color", "$value": "{theme.color.white}" },
+      "icon": {
+        "color": { "$type": "color", "$value": "{theme.color.base}" },
+        "color-active": { "$type": "color", "$value": "{theme.color.white}" },
+        "container-size": { "$type": "dimension", "$value": "18px" }
+      }
+    },
+    "form": {
+      "max-width": { "$type": "dimension", "$value": "460px" },
+      "max-width--small": { "$type": "dimension", "$value": "6em" },
+      "max-width--medium": { "$type": "dimension", "$value": "12em" },
+      "hint": {
+        "color": { "$type": "color", "$value": "{theme.color.muted}" },
+        "color--inverse": { "$type": "color", "$value": "{theme.color.muted.inverse}" }
+      },
+      "error": {
+        "color": { "$type": "color", "$value": "{theme.color.error}" },
+        "color--inverse": { "$type": "color", "$value": "{theme.color.error.light}" }
+      }
+    },
+    "icon": {
+      "color--error": { "$type": "color", "$value": "{theme.color.error}" },
+      "color--inverse": { "$type": "color", "$value": "{theme.color.white}" },
+      "color--primary": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color--success": { "$type": "color", "$value": "{theme.color.success}" },
+      "color--warn": { "$type": "color", "$value": "{theme.color.warn}" }
+    },
+    "label": { "color--inverse": { "$type": "color", "$value": "{theme.color.base.inverse}" } },
+    "link": {
+      "color": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color--active": { "$type": "color", "$value": "{theme.color.base}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color--visited": { "$type": "color", "$value": "{theme.color.visited}" },
+      "text-decoration-offset": { "$type": "dimension", "$value": "4px" },
+      "text-decoration-thickness": { "$type": "dimension", "$value": "2.4px" },
+      "text-decoration-thickness--hover": { "$type": "dimension", "$value": "2.4px" },
+      "inverse": {
+        "color": { "$type": "color", "$value": "{theme.color.base.inverse}" },
+        "color--active": { "$type": "color", "$value": "{theme.color.muted.inverse}" },
+        "color--hover": { "$type": "color", "$value": "{theme.color.muted.inverse}" },
+        "color--visited": { "$type": "color", "$value": "{theme.color.muted.inverse}" }
+      }
+    },
+    "pagination": {
+      "link": {
+        "color": { "$type": "color", "$value": "{theme.color.primary}" },
+        "color--hover": { "$type": "color", "$value": "{theme.color.primary.darker}" },
+        "color--active": { "$type": "color", "$value": "{theme.color.primary.darkest}" },
+        "color--focus": { "$type": "color", "$value": "{theme.color.primary.darker}" },
+        "color--disabled": { "$type": "color", "$value": "{theme.color.gray.lighter}" }
+      },
+      "current": {
+        "color": { "$type": "color", "$value": "{theme.color.base}" }
+      },
+      "overflow": {
+        "color": { "$type": "color", "$value": "{theme.color.gray.dark}" }
+      },
+      "page-count": {
+        "color": { "$type": "color", "$value": "{theme.color.gray.dark}" }
+      }
+    },
+    "review": { "border-color": { "$type": "color", "$value": "{theme.color.border}" } },
+    "steplist": {
+      "color": { "$type": "color", "$value": "{theme.color.muted}" },
+      "color--current": { "$type": "color", "$value": "{theme.color.primary}" },
+      "background-color--current": { "$type": "color", "$value": "{theme.color.primary}" },
+      "step": {
+        "color": { "$type": "color", "$value": "{theme.color.muted}" },
+        "border-color": { "$type": "color", "$value": "{theme.color.border}" },
+        "border-color--default": { "$type": "color", "$value": "{theme.color.muted}" },
+        "color--current": { "$type": "color", "$value": "{theme.color.white}" },
+        "color--completed": { "$type": "color", "$value": "{theme.color.base}" },
+        "background-color--completed": { "$type": "color", "$value": "{theme.color.base}" }
+      }
+    },
+    "spinner": {
+      "background-color": { "$type": "color", "$value": "{theme.color.background}" },
+      "color": { "$type": "color", "$value": "{theme.color.base}" },
+      "background-color--inverse": {
+        "$type": "color",
+        "$value": "{theme.color.background.inverse}"
+      },
+      "color--inverse": { "$type": "color", "$value": "{theme.color.white}" }
+    },
+    "table": {
+      "padding": { "$value": "{spacer.2}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "background-color--striped": { "$type": "color", "$value": "{theme.color.gray.lightest}" },
+      "header": {
+        "background-color": { "$type": "color", "$value": "{theme.color.primary.lightest}" },
+        "background-color--striped": {
+          "$type": "color",
+          "$value": "{theme.color.gray.lightest}"
+        }
+      }
+    },
+    "tabs": {
+      "border-color": { "$type": "color", "$value": "{theme.color.border}" },
+      "background-color": { "$type": "color", "$value": "{theme.color.background}" },
+      "background-color--hover": { "$type": "color", "$value": "{theme.color.primary.lightest}" },
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "background-color--selected": { "$type": "color", "$value": "{theme.color.background}" },
+      "color": { "$type": "color", "$value": "{theme.color.base}" },
+      "color--hover": { "$type": "color", "$value": "{theme.color.primary}" },
+      "color--active": { "$type": "color", "$value": "{theme.color.primary.darker}" },
+      "color--disabled": { "$type": "color", "$value": "{theme.color.gray.darker}" },
+      "color--selected": { "$type": "color", "$value": "{theme.color.primary}" },
+      "border-color--disabled": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "border-color--selected": { "$type": "color", "$value": "{theme.color.primary}" },
+      "panel": {
+        "background-color": { "$type": "color", "$value": "{theme.color.background}" }
+      }
+    },
+    "text-input": {
+      "background-color--disabled": { "$type": "color", "$value": "{theme.color.gray.lighter}" },
+      "border-width": { "$type": "dimension", "$value": "2px" },
+      "border-width--error": { "$type": "dimension", "$value": "3px" },
+      "border-color": { "$type": "color", "$value": "{theme.color.base}" },
+      "border-color--disabled": { "$type": "color", "$value": "{theme.color.gray.light}" },
+      "border-color--error": { "$type": "color", "$value": "{theme.color.error}" },
+      "border-color--error--inverse": { "$type": "color", "$value": "{theme.color.error.light}" },
+      "border-color--inverse": { "$type": "color", "$value": "{theme.color.black}" },
+      "color": { "$type": "color", "$value": "{theme.color.base}" },
+      "divider-color": { "$type": "color", "$value": "{theme.color.gray.light}" },
+      "padding": { "$value": "{spacer.1}" },
+      "border-radius": { "$value": "{radius.default}" }
+    },
+    "tooltip": {
+      "background-color": { "$type": "color", "$value": "{theme.color.background}" },
+      "border-color": { "$type": "color", "$value": "{theme.color.gray.darker}" },
+      "border-color--active": { "$value": "{hexOpacity(theme.color.primary, 0.25)}" },
+      "border-color--inverse-active": { "$value": "{hexOpacity(theme.color.white, 0.25)}" },
+      "border-width": { "$type": "dimension", "$value": "1px" },
+      "color": { "$type": "color", "$value": "{theme.color.base}" },
+      "box-shadow-color": { "$type": "color", "$value": "{theme.color.gray.light}" },
+      "icon": {
+        "color": { "$type": "color", "$value": "{theme.color.primary}" },
+        "color--inverse": { "$type": "color", "$value": "{theme.color.white}" }
+      },
+      "trigger": {
+        "color": { "$type": "color", "$value": "{theme.color.primary}" }
+      }
+    },
+    "usa-banner": {
+      "background-color": { "$type": "color", "$value": "{theme.color.gray.lightest}" },
+      "color": { "$type": "color", "$value": "{theme.color.base}" },
+      "max-width": { "$value": "{site-max-width}" },
+      "gutter-width": { "$value": "{grid.gutter-width}" },
+      "link": {
+        "color": { "$type": "color", "$value": "{theme.color.primary}" }
+      },
+      "domain-icon": {
+        "color": { "$type": "color", "$value": "{theme.color.primary}" }
+      },
+      "security-icon": {
+        "color": { "$type": "color", "$value": "{theme.color.success.light}" }
+      },
+      "close-button": {
+        "background-color--mobile": {
+          "$type": "color",
+          "$value": "{theme.color.gray.lighter}"
+        },
+        "color--mobile": { "$type": "color", "$value": "{theme.color.primary}" }
+      }
+    },
+    "vertical-nav": {
+      "item": {
+        "background-color--hover": {
+          "$type": "color",
+          "$value": "{theme.color.gray.lightest}"
+        },
+        "color--hover": { "$type": "color", "$value": "{theme.color.primary}" },
+        "border-color": { "$type": "color", "$value": "{theme.color.gray.dark}" }
+      },
+      "label": {
+        "color": { "$type": "color", "$value": "{theme.color.base}" },
+        "color--current": { "$type": "color", "$value": "{theme.color.primary}" },
+        "border-color--current": { "$type": "color", "$value": "{theme.color.primary}" },
+        "icon": {
+          "color": { "$type": "color", "$value": "{theme.color.base}" }
+        }
+      }
+    }
+  }
+}
