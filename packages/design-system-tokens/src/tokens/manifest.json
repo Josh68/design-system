@@ -8,10 +8,10 @@
 		},
 		"Theme": {
 			"modes": {
-				"core": [ "core.json" ],
+				"core": [ "core.json", "core-component.json" ],
 				"cmsgov": [ "cmsgov.json", "cmsgov-component.json" ],
-				"healthcare": [ "healthcare.json" ],
-				"medicare": [ "medicare.json" ]
+				"healthcare": [ "healthcare.json", "healthcare-component.json" ],
+				"medicare": [ "medicare.json", "medicare-component.json" ]
 			}
 		}
 	}

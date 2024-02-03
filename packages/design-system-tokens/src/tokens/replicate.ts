@@ -1,6 +1,6 @@
 import json from './cmsgov-component.json';
 import fs from 'fs'
-import themeTokens from '../themes/core-component';
+import themeTokens from '../themes/medicare-component';
 
 type FlattenObject = {
   [key: string]: string | number | boolean | null | undefined | FlattenObject;
