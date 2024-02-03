@@ -1,11 +1,10 @@
 {
   "animation": {
     "speed": {
-      
-      "1": { "$type": "duration","$value": "250ms" },
-      "2": { "$type": "duration","$value": "300ms" },
-      "3": { "$type": "duration","$value": "500ms" },
-      "4": { "$type": "duration","$value": "800ms" }
+      "1": { "$type": "number","$value": "250" },
+      "2": { "$type": "number","$value": "300" },
+      "3": { "$type": "number","$value": "500" },
+      "4": { "$type": "number","$value": "800" }
     }
   }
 }

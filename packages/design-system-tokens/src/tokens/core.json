@@ -78,6 +78,30 @@
       "warn-darker": { "$type": "color", "$value": "{color.goldenrod.700}" },
       "warn-darkest": { "$type": "color", "$value": "{color.goldenrod.800}" },
       "visited": { "$type": "color", "$value": "{color.windsor.500}" }
+    },
+    "font": {
+      "size": {
+        "base": { "$type": "dimension", "$value": "{font.size.20}" },
+        "sm": { "$type": "dimension", "$value": "{font.size.10}" },
+        "md": { "$type": "dimension", "$value": "{font.size.20}" },
+        "lg": { "$type": "dimension", "$value": "{font.size.30}" },
+        "xl": { "$type": "dimension", "$value": "{font.size.40}" },
+        "2xl--mobile": { "$type": "dimension", "$value": "{font.size.50}" },
+        "2xl": { "$type": "dimension", "$value": "{font.size.50}" },
+        "3xl--mobile": { "$type": "dimension", "$value": "{font.size.60}" },
+        "3xl": { "$type": "dimension", "$value": "{font.size.70}" },
+        "4xl--mobile": { "$type": "dimension", "$value": "{font.size.70}" },
+        "4xl": { "$type": "dimension", "$value": "{font.size.80}" },
+        "5xl--mobile": { "$type": "dimension", "$value": "{font.size.70}" },
+        "5xl--tablet": { "$type": "dimension", "$value": "{font.size.80}" },
+        "5xl": { "$type": "dimension", "$value": "{font.size.90}" }
+      },
+      "line-height": {
+        "reset": { "$type": "number", "$value": 1 },
+        "heading": { "$type": "number", "$value": 1.3 },
+        "base": { "$type": "number", "$value": 1.5 },
+        "lead": { "$type": "number", "$value": 1.7 }
+      }
     }
   }
 }
