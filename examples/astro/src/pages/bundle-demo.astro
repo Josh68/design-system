@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const KILOBYTES_PER_BURGER = 5;
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="ds-l-container">
+    <h1 class="ds-text-heading--4xl ds-u-margin-y--4">
+      Bundle size reductions
+    </h1>
+		<div class="ds-l-row">
+      <div class="ds-l-col--8">
+        <h2>Timeline</h2>
+        <ol>
+          <li>The React bundle for our v8.0.5 release in November weighed in at <code>574KB</code>.</li>
+          <li>In v9.0, we removed core-js, which brought our bundle size to <code>543KB</code>.</li>
+          <li>In v10.0, we reconfigured browserslist to both increase calculated coverage of users and decrease bundle size. The new bundle size was <code>436KB</code>.</li>
+          <li>Also in v10.0, we dropped React 16 support and switched to the new JSX transform, which brought us down to <code>418KB</code></li>
+          <li>We began working on v11 bundle-size reductions, the first of which was stripping the HTML dialog polyfill down to a shim, which brought us to <code>407KB</code></li>
+          <li>We made an upstream fix to one of our dependencies a few weeks ago, and it was just accepted and released this week. When we upgrade to that version next week, our v11 bundle size will be <code>387KB</code></li>
+          <li>Sarah has also done some technical discovery on necessary updates to our Tooltip component, and her prototype cut our code by another <code>36KB</code>, which would theoretically bring us to <code>351KB</code></li>
+        </ol>
+      </div>
+      <div class="ds-l-col--4">
+        <h2>Bundle size</h2>
+        
+          <p>Bundle size: <code><output id="bundle-size"></output>KB</code></p>
+        </p>
+        <div id="burgers" class="ds-u-font-size--2xl">
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+          <span class="burger">🍔</span>
+        </div>
+        <p>🍔 = <code>{KILOBYTES_PER_BURGER}KB</code>
+      </div>
+    </div>
+	</div>
+</Layout>
+<style>
+  code {
+    font-weight: bold;
+    color:magenta;
+  }
+
+  .burger {
+    cursor: pointer;
+  }
+
+  .removed {
+    opacity: 0.3;
+  }
+</style>
+<script define:vars={{ KILOBYTES_PER_BURGER }}>
+  const bundleSize = document.getElementById('bundle-size');
+  updateBundleSize();
+  
+  document.getElementById('burgers')?.addEventListener('click', function(event) {
+    const burger = event.target;
+    if (!burger.classList.contains('burger')) return;
+
+    if (burger.classList.contains('removed')) {
+      burger.classList.remove('removed');
+    } else {
+      burger.classList.add('removed');
+    }
+
+    updateBundleSize();
+  });
+
+  function updateBundleSize() {
+    const numBurgers = document.querySelectorAll('.burger:not(.removed)').length;
+    
+    bundleSize.value = numBurgers * KILOBYTES_PER_BURGER;
+  }
+</script>
