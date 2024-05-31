@@ -5,6 +5,7 @@ import TextField from '../TextField/TextField';
 import uniqueId from 'lodash/uniqueId';
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/react';
+import { Button } from '../Button';
 
 const meta: Meta<typeof Autocomplete> = {
   title: 'Components/Autocomplete',
@@ -23,6 +24,7 @@ type Story = StoryObj<typeof Autocomplete>;
 
 const Template = (args) => {
   const { items, textFieldLabel, textFieldHint, ...autocompleteArgs } = args;
+  const [ariaMessage, setAriaMessage] = useState('');
   const [input, setInput] = useState('');
   const onInputValueChange = (...args) => {
     action('onInputValueChange')(args);
@@ -34,15 +36,28 @@ const Template = (args) => {
       (item) => !item.name || item.name.toLowerCase().includes(input.toLowerCase())
     );
   }
+  const changeAria = () => {
+    if (ariaMessage === 'oh hello') {
+      setAriaMessage('bye then');
+    } else {
+      setAriaMessage('oh hello');
+    }
+  };
   return (
-    <Autocomplete
-      {...autocompleteArgs}
-      onChange={action('onChange')}
-      onInputValueChange={onInputValueChange}
-      items={filteredItems}
-    >
-      <TextField label={textFieldLabel} hint={textFieldHint} name="autocomplete" value={input} />
-    </Autocomplete>
+    <>
+      <Button onClick={changeAria}>Change Aria</Button>
+      <div aria-live="polite" aria-atomic="true">
+        {ariaMessage}
+      </div>
+      <Autocomplete
+        {...autocompleteArgs}
+        onChange={action('onChange')}
+        onInputValueChange={onInputValueChange}
+        items={filteredItems}
+      >
+        <TextField label={textFieldLabel} hint={textFieldHint} name="autocomplete" value={input} />
+      </Autocomplete>
+    </>
   );
 };
 
