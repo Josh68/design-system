@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Foo should render a default foo 1`] = `
+<p
+  class="ds-u-color--base ds-u-padding--2"
+  style="background-color: lightblue;"
+>
+  Hello, world!
+</p>
+`;
