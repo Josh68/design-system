@@ -29,6 +29,7 @@ export * from './Tooltip';
 export * from './UsaBanner';
 export * from './VerticalNav';
 export * from './Icons';
+export * from './Foo';
 
 export * from './analytics';
 export * from './config';
