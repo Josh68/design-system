@@ -1,6 +1,6 @@
 {
   "name": "@cmsgov/cms-design-system-docs",
-  "version": "11.0.0",
+  "version": "12.0.0-beta.0",
   "private": true,
   "description": "CMS Design System Documentation",
   "keywords": [
