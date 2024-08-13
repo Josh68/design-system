@@ -74,9 +74,19 @@ async function bumpVersions() {
       (level: any) => ({ name: level, value: level })
     ),
   });
+  // Perform the bump on all relevant workspace packages
   sh(
-    `npm version ${changeLevel} --workspaces=true --preid="beta" --git-tag-version=false --legacy-peer-deps=true`
+    // --no-push --no-git-tag-version
+    `yarn lerna version ${changeLevel} --preid "beta" --no-push --no-git-tag-version --exact --force-publish`
   );
+  // sh(
+  //   `yarn lerna version ${changeLevel} --preid "beta" --git-tag-command "echo nope" --no-push --exact`
+  // );
+  process.exit(0);
+  return;
+  // sh(
+  //   `npm version ${changeLevel} --workspaces=true --preid="beta" --git-tag-version=false --legacy-peer-deps=true`
+  // );
   // Only stage changes to package files
   sh('git add -u **/package.json');
   // And discard all other changes
