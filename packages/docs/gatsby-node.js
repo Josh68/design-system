@@ -1,6 +1,7 @@
 const redirects = require('./redirects.json');
 const path = require('path');
 const express = require('express');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -20,6 +21,21 @@ exports.onCreateDevServer = ({ app }) => {
   app.use(express.static('static'));
 };
 
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+
+  // Create slugs for MDX nodes
+  if (node.internal.type === 'Mdx') {
+    const slug = createFilePath({ node, getNode, basePath: 'content' });
+    
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    });
+  }
+};
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   const infoPageTemplate = path.resolve(`src/components/page-templates/InfoPage.tsx`);
@@ -31,8 +47,8 @@ exports.createPages = async ({ graphql, actions }) => {
       allMdx(filter: { fileAbsolutePath: { glob: "**/content/**" } }) {
         edges {
           node {
-            id
-            slug
+            id          
+            fields { slug }      
             body
             frontmatter {
               title
@@ -50,11 +66,12 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allMdx.edges.forEach((edge) => {
     createPage({
       // Path for this page -- the slug with positioning markers removed
-      path: edge.node.slug.replace(/\d+_/g, '') + '/',
-      component: edge.node.slug.startsWith('blog') ? blogPageTemplate : infoPageTemplate,
+      path: edge.node.fields.slug.replace(/\d+_/g, '') + '/',
+      component: edge.node.fields.slug.startsWith('blog') ? blogPageTemplate : infoPageTemplate,
       // props passed to template
       context: {
         id: edge.node.id,
+        slug: edge.node.fields.slug,
       },
     });
   });
