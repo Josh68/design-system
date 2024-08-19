@@ -138,10 +138,9 @@ const config: GatsbyConfig = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => {
+              return allMdx.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                 });
@@ -150,7 +149,7 @@ const config: GatsbyConfig = {
             query: `
               {
                 allMdx(
-                  sort: { order: DESC, fields: [frontmatter___date] },
+                  sort: { order: ASC, fields: [frontmatter___title] },
                 ) {
                   edges {
                     node {
@@ -165,8 +164,8 @@ const config: GatsbyConfig = {
                 }
               }
             `,
-            output: "/rss.xml",
-            title: "CMS Design System Documentation RSS Feed",
+            output: '/rss.xml',
+            title: 'CMS Design System Documentation RSS Feed',
           },
         ],
       },
