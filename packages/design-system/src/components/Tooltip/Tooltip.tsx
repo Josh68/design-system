@@ -1,13 +1,10 @@
 import type * as React from 'react';
 // TODO: Update react-transition-group once we update react peer dep
 import CSSTransition from 'react-transition-group/CSSTransition';
-import FocusTrap from 'focus-trap-react';
 import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import classNames from 'classnames';
 import { createPopper, Placement } from '@popperjs/core';
 import useId from '../utilities/useId';
-import { Button } from '../Button';
-import { CloseIconThin } from '../Icons';
 import usePrevious from '../utilities/usePrevious';
 
 export interface BaseTooltipProps {
@@ -28,10 +25,6 @@ export interface BaseTooltipProps {
    */
   className?: string;
   /**
-   * Configurable text for the aria-label of the tooltip's close button
-   */
-  closeButtonLabel?: string;
-  /**
    * When provided, will render the passed in component for the tooltip trigger. Typically will be a `button`, `a`, or rarely an `input` element.
    */
   component?: React.ReactElement<any> | any | ((...args: any[]) => any);
@@ -39,11 +32,6 @@ export interface BaseTooltipProps {
    * Heading for the tooltip content. This will show above 'title' content and inline with 'closeButton' if closeButton is set
    */
   contentHeading?: React.ReactNode;
-
-  /**
-   * Tooltip that behaves like a dialog, i.e. a tooltip that only appears on click, traps focus, and contains interactive content. For more information, see Deque's [tooltip dialog documentation](https://dequeuniversity.com/library/aria/tooltip-dialog)
-   */
-  dialog?: boolean;
   /**
    * `id` applied to tooltip body container element. If not provided, a unique id will be automatically generated and used.
    */
@@ -73,10 +61,6 @@ export interface BaseTooltipProps {
    * `maxWidth` styling applied to the tooltip body
    */
   maxWidth?: string;
-  /**
-   * Determines if close button is shown in tooltip. It is recommended that the close button is only used if `dialog=true`
-   */
-  showCloseButton?: boolean;
   /**
    * Content inside the tooltip body or popover. If contains interactive elements use the `dialog` prop.
    */
@@ -145,18 +129,12 @@ export const Tooltip = (props: TooltipProps) => {
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (active && (props.dialog || isMobile)) {
+    if (active && isMobile) {
       const clickedTrigger = triggerElement.current?.contains(event.target);
       const clickedTooltip = tooltipElement.current?.contains(event.target);
       if (!clickedTooltip && !clickedTrigger) {
         setActive(false);
       }
-    }
-  };
-
-  const handleCloseButtonClick = () => {
-    if (active && (props.dialog || isMobile)) {
-      setActive(false);
     }
   };
 
@@ -201,13 +179,6 @@ export const Tooltip = (props: TooltipProps) => {
       props.onOpen && props.onOpen();
     } else {
       props.onClose && props.onClose();
-
-      // if tooltip goes from active to inactive and is the dialog version, focus the trigger
-      if (prevActiveStateVar && (props.dialog || isMobile) && props.showCloseButton) {
-        if (triggerElement && triggerElement.current) {
-          triggerElement.current.focus();
-        }
-      }
     }
   }, [active]);
 
@@ -225,7 +196,6 @@ export const Tooltip = (props: TooltipProps) => {
       children,
       className,
       component,
-      dialog,
       id,
       offset,
       onClose,
@@ -237,8 +207,6 @@ export const Tooltip = (props: TooltipProps) => {
       title,
       transitionDuration,
       zIndex,
-      showCloseButton,
-      closeButtonLabel,
       contentHeading,
       ...others
     } = props;
@@ -251,31 +219,22 @@ export const Tooltip = (props: TooltipProps) => {
     const linkTriggerOverrides = {
       tabIndex: TriggerComponent === 'a' ? 0 : undefined,
     };
-    const eventHandlers = dialog
-      ? {
-          onTouchStart: () => handleTouch(),
-          onClick: () => {
-            if (!isMobile) {
-              setActive(!active);
-            }
-          },
+    const eventHandlers = {
+      onTouchStart: () => handleTouch(),
+      onClick: () => {
+        if (!isMobile) {
+          setActive(!active);
         }
-      : {
-          onTouchStart: () => handleTouch(),
-          onClick: () => {
-            if (!isMobile) {
-              setActive(!active);
-            }
-          },
-          onFocus: () => setActive(true),
-          onBlur: (event) => handleBlur(event),
-        };
+      },
+      onFocus: () => setActive(true),
+      onBlur: (event) => handleBlur(event),
+    };
 
     return (
       <TriggerComponent
         type={TriggerComponent === 'button' ? 'button' : undefined}
         aria-label={ariaLabel || undefined}
-        aria-describedby={dialog ? undefined : contentId}
+        aria-describedby={contentId}
         className={triggerClasses}
         ref={setTriggerElement}
         {...others}
@@ -289,14 +248,11 @@ export const Tooltip = (props: TooltipProps) => {
 
   const renderContent = (props: TooltipProps): React.ReactElement => {
     const {
-      closeButtonLabel,
-      dialog,
       contentHeading,
       inversed,
       interactiveBorder,
       placement,
       maxWidth,
-      showCloseButton,
       title,
       transitionDuration,
       zIndex,
@@ -309,86 +265,58 @@ export const Tooltip = (props: TooltipProps) => {
       border: `${interactiveBorder}px solid transparent`,
       zIndex: -999, // ensures interactive border doesnt cover tooltip content
     };
-    const eventHandlers = dialog ? {} : { onBlur: (event) => handleBlur(event) };
+    const eventHandlers = { onBlur: (event) => handleBlur(event) };
 
     const tooltipContent = (
       <div
         id={contentId}
-        tabIndex={dialog ? -1 : null}
+        tabIndex={null}
         ref={setTooltipElement}
         className={classNames('ds-c-tooltip', { 'ds-c-tooltip--inverse': inversed })}
         style={tooltipStyle}
         data-placement={placement}
         aria-hidden={!active}
-        role={dialog ? 'dialog' : 'tooltip'}
+        role={'tooltip'}
         {...eventHandlers}
       >
         <span className="ds-c-tooltip__arrow" data-popper-arrow />
         <div className="ds-c-tooltip__content">
-          {contentHeading || showCloseButton ? (
+          {contentHeading ? (
             <div
               className={classNames('ds-c-tooltip__header', {
                 'ds-c-tooltip__header--right': !contentHeading,
               })}
             >
               {contentHeading}
-              {showCloseButton && (
-                <Button
-                  variation="ghost"
-                  size="small"
-                  className="ds-c-tooltip__close-button"
-                  onClick={handleCloseButtonClick}
-                  aria-label={closeButtonLabel || 'Close'}
-                >
-                  <CloseIconThin />
-                </Button>
-              )}
             </div>
           ) : null}
           {title}
         </div>
-        {!dialog && (
-          <span className="ds-c-tooltip__interactive-border" style={interactiveBorderStyle} />
-        )}
+        <span className="ds-c-tooltip__interactive-border" style={interactiveBorderStyle} />
       </div>
     );
 
     return (
       <CSSTransition in={active} classNames="ds-c-tooltip" timeout={transitionDuration}>
-        {dialog ? (
-          <FocusTrap
-            active={active}
-            focusTrapOptions={{
-              fallbackFocus: () => document.getElementById(`${contentId}`).parentElement,
-              initialFocus: () => document.getElementById(`${contentId}`),
-              clickOutsideDeactivates: true,
-            }}
-          >
-            {tooltipContent}
-          </FocusTrap>
-        ) : (
-          tooltipContent
-        )}
+        {tooltipContent}
       </CSSTransition>
     );
   };
 
-  const mainEventHandlers = props.dialog
-    ? {}
-    : {
-        onMouseEnter: () => {
-          if (!isMobile) {
-            setIsHover(true);
-            setActive(true);
-          }
-        },
-        onMouseLeave: () => {
-          if (!isMobile) {
-            setIsHover(false);
-            setActive(false);
-          }
-        },
-      };
+  const mainEventHandlers = {
+    onMouseEnter: () => {
+      if (!isMobile) {
+        setIsHover(true);
+        setActive(true);
+      }
+    },
+    onMouseLeave: () => {
+      if (!isMobile) {
+        setIsHover(false);
+        setActive(false);
+      }
+    },
+  };
 
   return (
     <div className="ds-c-tooltip__container" {...mainEventHandlers}>
