@@ -1,6 +1,5 @@
 import Tooltip from './Tooltip';
 import TooltipIcon from './TooltipIcon';
-import Button from '../Button/Button';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Tooltip> = {
@@ -77,46 +76,6 @@ export const InlineTrigger: Story = {
     component: 'a',
     title: 'Tooltip trigger uses <a> for the trigger, styled with dotted underline',
     children: 'inline trigger',
-  },
-};
-
-export const InteractiveContent: Story = {
-  args: {
-    dialog: true,
-    className: 'ds-c-button',
-    component: 'button',
-    title: (
-      <>
-        <p className="ds-u-margin--0">
-          Tooltip dialogs only activate on click and include a focus trap. Intended for tooltips
-          with complex layout and <a href="/#">interactive elements</a>
-        </p>
-        <Button
-          size="small"
-          className="ds-u-margin-top--2"
-          href="https://dequeuniversity.com/library/aria/tooltip-dialog"
-        >
-          More info
-        </Button>
-      </>
-    ),
-    children: 'Tooltip with interactive content',
-  },
-};
-
-export const TooltipWithCloseButton: Story = {
-  args: {
-    dialog: true,
-    title: (
-      <>
-        Entering your Social Security Number helps the plan confirm with your state that you have
-        Medicaid.
-      </>
-    ),
-    children: 'Tooltip trigger',
-    contentHeading: 'Really long Heading for tooltip',
-    showCloseButton: true,
-    className: 'ds-c-button',
   },
 };
 
